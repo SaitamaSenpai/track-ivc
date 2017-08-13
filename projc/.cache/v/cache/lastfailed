@@ -1,9 +1,0 @@
-{
-  "snakeeyes/tests/admin/test_views.py::TestUsers::()::test_bulk_delete_nothing": true, 
-  "snakeeyes/tests/contact/test_tasks.py::TestTasks::()::test_deliver_support_email": true, 
-  "snakeeyes/tests/user/test_models.py::TestUser::()::test_deserialize_token": true, 
-  "snakeeyes/tests/user/test_models.py::TestUser::()::test_deserialize_token_tampered": true, 
-  "snakeeyes/tests/user/test_models.py::TestUser::()::test_serialize_token": true, 
-  "snakeeyes/tests/user/test_tasks.py::TestTasks::()::test_deliver_password_reset_email": true, 
-  "snakeeyes/tests/user/test_views.py::TestPasswordReset::()::test_password_reset": true
-}
