@@ -5,6 +5,7 @@ from wtforms_components import Unique
 from lib.util_wtforms import choices_from_dict
 
 from snakeeyes.blueprints.budget.models import Budget, db
+
 '''
 class SearchForm(Form):
     q = StringField('Search terms', [Optional(), Length(1, 256)])
@@ -12,6 +13,7 @@ class SearchForm(Form):
 
 class BudgetForm(Form):
 	budget_year = StringField('Budget Year', [DataRequired()])
+	'''
 	description = TextAreaField('Description', [DataRequired(), Length(1, 8192)])
 	input_type_balance = FloatField('Amount ($)', [DataRequired(), NumberRange(min=0.00, max=21474836.47)])
 
@@ -26,3 +28,5 @@ class BudgetForm(Form):
 	input_type = SelectField('Type', [DataRequired()],
 									  choices=choices_from_dict(Budget.input_type,
 									  							prepend_blank=False))
+	'''
+	

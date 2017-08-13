@@ -27,6 +27,7 @@ def init(with_testdb):
     :param with_testdb: Create a test database
     :return: None
     """
+    db.reflect()
     db.drop_all()
     db.create_all()
 

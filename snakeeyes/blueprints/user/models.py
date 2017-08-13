@@ -26,7 +26,8 @@ class User(UserMixin, ResourceMixin, db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
 
-    budget = db.relationship(Budget, uselist=False, backref='users', passive_deletes=True)
+    budget = db.relationship(Budget, uselist=False,
+                                   backref='users', passive_deletes=True)
 
     # Authentication.
     role = db.Column(db.Enum(*ROLE, name='role_types', native_enum=False),

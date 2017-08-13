@@ -51,6 +51,7 @@ def db(app):
     :param app: Pytest fixture
     :return: SQLAlchemy database session
     """
+    _db.reflect()
     _db.drop_all()
     _db.create_all()
 
