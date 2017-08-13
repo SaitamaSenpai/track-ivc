@@ -1,0 +1,33 @@
+{% extends 'layouts/app.html' %}
+{% import 'macros/items.html' as items %}
+{% import 'macros/form.html' as f with context %}
+{% import 'macros/user.html' as account %}
+
+{% block body %}
+  {{ f.search('budget.descriptioon') }}
+
+  {% if description.total == 0 %}
+    <h3>No results found</h3>
+  {% else %}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="col-header">
+            {{ items.sort('budget_year', 'Budget Year') }}
+          </th>
+          <th class="col-header">
+            {{ items.sort('description') }}
+          </th>
+          <th class="col-header">
+            {{ items.sort('allocated') }}
+          </th>
+          <th class="col-header">
+            {{ items.sort('exp_to_date', 'Expense to date') }}
+          </th>
+          <th class="col-header">
+          	{{ items.sort('inc_to_date', 'Income to date') }}
+          </th>
+          <th class="col-header">
+          	{{ items.sort('balance') }}
+        </tr>
+      </thead>
