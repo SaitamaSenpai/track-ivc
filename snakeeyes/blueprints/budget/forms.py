@@ -13,6 +13,8 @@ class SearchForm(Form):
 
 class BudgetForm(Form):
 	budget_year = StringField('Budget Year', [DataRequired()])
+	# telling the html what kind of data field we have for input
+
 	'''
 	description = TextAreaField('Description', [DataRequired(), Length(1, 8192)])
 	input_type_balance = FloatField('Amount ($)', [DataRequired(), NumberRange(min=0.00, max=21474836.47)])

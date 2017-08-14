@@ -6,7 +6,6 @@ import pytz
 from flask import current_app
 from sqlalchemy import or_
 from werkzeug.security import generate_password_hash, check_password_hash
-from snakeeyes.blueprints.budget.models import Budget
 
 from flask_login import UserMixin
 
@@ -14,6 +13,7 @@ from itsdangerous import URLSafeTimedSerializer, \
     TimedJSONWebSignatureSerializer
 
 from lib.util_sqlalchemy import ResourceMixin, AwareDateTime
+from snakeeyes.blueprints.budget.models import Budget
 from snakeeyes.extensions import db
 
 
@@ -26,8 +26,7 @@ class User(UserMixin, ResourceMixin, db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
 
-    budget = db.relationship(Budget, uselist=False,
-                                   backref='users', passive_deletes=True)
+    budget = db.relationship(Budget, backref='users', passive_deletes=True)
 
     # Authentication.
     role = db.Column(db.Enum(*ROLE, name='role_types', native_enum=False),

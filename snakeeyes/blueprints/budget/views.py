@@ -44,12 +44,15 @@ def view(page):
 def input():
     form = BudgetForm()
 
-    budget = Budget()
-    create = Budget.add(user=current_user,
-                        budget_year=request.form.get('budget_year'),
-                        user_id = current_user.id)
-    if create:
-        flash(_('Your subscription has been updated.'), 'success')
-        return redirect(url_for('user.settings'))
+    budget_year = request.form.get('budget_year')
+
+    params = {
+        'user_id': current_user.id,
+        'budget_year': budget_year
+    }
+
+    b = Budget(**params)
+    flash('Your budget has been saved.', 'success')
+    b.save()
 
     return render_template('budget/input.html', form=form)

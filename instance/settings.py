@@ -1,4 +1,2 @@
-MAIL_USERNAME = 'abc@gmail.com'
-MAIL_PASSWORD = 'asldasd;fk'
-
-SERVER_NAME = 'local.docker:8000'
+MAIL_USERNAME = 'aba@gmail.com'
+MAIL_PASSWORD = 'a;dsklfasdf'
