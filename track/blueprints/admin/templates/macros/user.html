@@ -1,0 +1,23 @@
+{% macro role_icon_for(user) -%}
+  {% if user.role == 'admin' %}
+    <i class="fa fa-3x fa-fw fa-shield" title="Admin"></i>
+  {% endif %}
+  {% if user.role == 'bnf' %}
+    <i class="fa fa-3x fa-fw fa-bar-chart" title="Budget and Finance member"></i>
+  {% endif %}
+  {% if user.acct_type == 'ASG of IVC' %}
+    <i class="fa fa-3x fa-fw fa-balance-scale text-muted" title="ASG of IVC"></i>
+  {% endif %}
+  {% if user.acct_type == 'Club' %}
+    <i class="fa fa-3x fa-fw fa-cubes text-muted" title="Club"></i>
+  {% endif %}
+  {% if user.acct_type == 'Co-Curricular' %}
+    <i class="fa fa-3x fa-fw fa-graduation-cap text-muted" title="Co-Curricular"></i>
+  {% endif %}
+  {% if user.acct_type == 'Department' %}
+    <i class="fa fa-3x fa-fw fa-university text-muted" title="Department"></i>
+  {% endif %}
+  {% if user.acct_type == 'Student Life' %}
+    <i class="fa fa-3x fa-fw fa-cogs text-muted" title="Student Life"></i>
+  {% endif %}
+{% endmacro %}
