@@ -84,7 +84,7 @@ class User(UserMixin, ResourceMixin, db.Model):
         :return: User instance
         """
         return User.query.filter(
-          (User.email == identity) | (User.username) == identity).first()
+          (User.email == identity) | (User.username == identity)).first()
 
     @classmethod
     def encrypt_password(cls, plaintext_password):
