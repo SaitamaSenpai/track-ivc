@@ -12,7 +12,6 @@ from flask_login import UserMixin
 from itsdangerous import URLSafeTimedSerializer, \
     TimedJSONWebSignatureSerializer
 
-from sqlalchemy import func
 from lib.util_sqlalchemy import ResourceMixin, AwareDateTime
 from track.blueprints.budget.models import Budget
 from track.extensions import db
@@ -85,7 +84,7 @@ class User(UserMixin, ResourceMixin, db.Model):
         :return: User instance
         """
         return User.query.filter(
-          (User.email == identity) | (func.lower(User.username) == identity)).first()
+          (User.email == identity) | (User.username) == identity).first()
 
     @classmethod
     def encrypt_password(cls, plaintext_password):
