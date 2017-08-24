@@ -41,6 +41,6 @@ def ensure_acct(form, field):
     user = Dashboard.role
     acct = Dashboard.acct_type
 
-    if user == 'admin' or user == 'bnf':
+    if user != 'member':
         if acct != 'none':
             raise ValidationError('Admin and Budget and Finance commissioner cannot hold an Account Type')

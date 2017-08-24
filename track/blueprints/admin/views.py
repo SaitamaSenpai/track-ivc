@@ -69,10 +69,12 @@ def users_edit(id):
 
     acct = request.form.get('acct_type')
     Dashboard.temp_acct(acct)
+    role = request.form.get('role')
+    Dashboard.temp_role(role)
 
     if form.validate_on_submit():
         if User.is_last_admin(user,
-                              request.form.get('role'),
+                              role,
                               request.form.get('active')):
             flash('You are the last admin, you cannot do that.', 'error')
             return redirect(url_for('admin.users'))

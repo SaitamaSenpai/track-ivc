@@ -20,4 +20,7 @@
   {% if user.acct_type == 'Student Life' %}
     <i class="fa fa-3x fa-fw fa-cogs text-muted" title="Student Life"></i>
   {% endif %}
+  {% if user.acct_type == 'none' and user.role != 'admin' and user.role != 'bnf' %}
+    <i class="fa fa-3x fa-fw fa-user text-muted" title="Student Life"></i>
+  {% endif %}
 {% endmacro %}
