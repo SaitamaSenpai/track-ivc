@@ -1,0 +1,65 @@
+{% extends 'layouts/app.html' %}
+{% import 'macros/items.html' as items %}
+
+{% block title %}Budget history{% endblock %}
+
+{% block body %}
+  <h2>Budget history</h2>
+  {% if budget.total == 0 %}
+    <p>No budget found.</p>
+  {% else %}
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Account Number</th>
+        <th>Budget Year</th>
+        <th>Description</th>
+        <th>Allocated</th>
+        <th>Expense</th>
+        <th>Income</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for b in budget.items %}
+        <tr>
+          <td>{{ b.acct_num }}</td>
+          <td>{{ b.budget_year }}</td>
+          <td>{{ b.description }}</td>
+          <td class="text-success">
+            ${{ b.allocated_amount }}
+          </td>
+          <td class="text-warning">
+            ${{ b.expenses_amount }}
+          </td>
+          <td class="text-success">
+            ${{ b.income_amount }}
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    <div class="col-md-12 col-md-offset-8">
+    {% for u in user %}
+      {% if u.role == 'admin' %}
+          <h2>Current remain: $ <strong class="text-{{ 'success' if u.total_to_date > 0 else 'danger' }}">{{ u.total_to_date }}</strong></h2>
+      {% else %}
+        <p>Allocated to date: $ <strong class="text-success">{{ u.allocated_to_date }}</strong></p>
+        <p>Expenses to date: $ <strong class="text-warning">{{ u.expenses_to_date }}</strong></p>
+        <p>Income to date: $<strong class="text-success">{{ u.income_to_date }}</strong></p>
+        <h1>Current remain: $ <strong class="text-{{ 'success' if u.total_to_date > 0 else 'danger' }}">{{ u.total_to_date }}</strong></h1>
+      {% endif %}
+    {% endfor %}
+    </div>
+    {{ items.paginate(budget) }}
+  {% endif %}
+  {% for u in user %}
+    {% if u.role == 'admin' %}
+      <hr/>
+      <a href="{{ url_for('admin.users') }}" class="margin-top btn btn-primary">
+        Go back
+      </a>
+    {% else %}
+      <P></P>
+    {% endif %}
+  {% endfor %}
+{% endblock %}
