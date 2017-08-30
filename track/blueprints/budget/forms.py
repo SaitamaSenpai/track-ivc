@@ -23,7 +23,8 @@ class BudgetForm(ModelForm):
 											choices=choices_from_dict(Budget.INPUT_TYPE, prepend_blank=True))
 	acct_num = SelectField('Account Number', [DataRequired()], 
 											choices=choices_from_dict(Budget.ACCT_NUM, prepend_blank=True))
-	budget_year = StringField('Budget Year', [DataRequired()])
+	budget_year = SelectField('Budget Year', [DataRequired()], 
+											choices=choices_from_dict(Budget.BUD_YR, prepend_blank=True))
 	amount = FloatField('Amount ($)', [DataRequired(), NumberRange(min=0.00, max=21474836.47), ensure_float])
 	description = TextAreaField('Description', [DataRequired(), Length(1, 8192)])
 	
