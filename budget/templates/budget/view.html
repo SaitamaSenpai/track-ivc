@@ -38,7 +38,7 @@
       {% endfor %}
       </tbody>
     </table>
-    <div class="col-md-12 col-md-offset-8">
+    <div class="col-md-offset-10">
     {% for u in user %}
       {% if u.role == 'admin' %}
           <h2>Current remain: $ <strong class="text-{{ 'success' if u.total_to_date > 0 else 'danger' }}">{{ u.total_to_date }}</strong></h2>
@@ -46,7 +46,7 @@
         <p>Allocated to date: $ <strong class="text-success">{{ u.allocated_to_date }}</strong></p>
         <p>Expenses to date: $ <strong class="text-warning">{{ u.expenses_to_date }}</strong></p>
         <p>Income to date: $<strong class="text-success">{{ u.income_to_date }}</strong></p>
-        <h1>Current remain: $ <strong class="text-{{ 'success' if u.total_to_date > 0 else 'danger' }}">{{ u.total_to_date }}</strong></h1>
+        <p>Current remain: $ <strong class="text-{{ 'success' if u.total_to_date > 0 else 'danger' }}">{{ u.total_to_date }}</strong></p>
       {% endif %}
     {% endfor %}
     </div>
