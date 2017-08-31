@@ -50,3 +50,7 @@ def terms():
 @page.route('/privacy')
 def privacy():
     return render_template('page/privacy.html')
+
+@page.route('/about')
+def about():
+	return render_template('page/about.html')

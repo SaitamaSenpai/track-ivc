@@ -39,18 +39,18 @@ def input():
 
         if input_type == 'allocated':
             a = amount,
-            e = 0.0,
-            i = 0.0
+            e = 0.00,
+            i = 0.00
             u.update_allocated_total(amount)
         if input_type == 'expenses':
             e = amount,
-            a = 0.0,
-            i = 0.0
+            a = 0.00,
+            i = 0.00
             u.update_expenses_total(amount)
         if input_type == 'income':
             i = amount,
-            a = 0.0,
-            e = 0.0
+            a = 0.00,
+            e = 0.00
             u.update_income_total(amount)
 
         params = {
@@ -63,16 +63,16 @@ def input():
             'expenses_amount': e,
             'income_amount': i
         }
-    
+
         b = Budget(**params)
 
         if None in params:
             flash('Area missing.', 'error')
-        else:    
+        else:
             b.save()
             flash('Your budget has been saved.', 'success')
             return redirect(url_for('admin.users'))
-    
+
 
     return render_template('budget/input.html', form=form)
 

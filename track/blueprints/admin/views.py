@@ -91,41 +91,6 @@ def users_edit(id):
 
     return render_template('admin/user/edit.html', form=form, user=user, current=current)
 
-'''
-@admin.route('/users/edit/<int:id>', methods=['GET', 'POST'])
-def users_new(id):
-    form = AddForm()
-
-    if form.validate_on_submit():
-        email = request.form.get('emal')
-        password = User.encrypt_password(request.form.get('password'))
-        username = request.form.get('username')
-        role = request.form.get('role')
-        acct_type = request.form.get('acct_type')
-        active = request.form.get('active')
-
-        param = {
-            'email': email,
-            'password': password,
-            'username': username,
-            'role': role,
-            'acct_type': acct_type,
-            'active': active
-        }
-
-        user = User(**param)
-
-        Dashboard.temp(user.username)
-
-        if None in params:
-            flash('Area missing.', 'error')
-        else:    
-            user.save()
-            flash('User has been saved successfully.', 'success')
-            return redirect(url_for('admin.users'))
-
-    return render_template('admin/user/edit.html', form=form, user=user)
-'''
 
 @admin.route('/users/bulk_delete', methods=['POST'])
 def users_bulk_delete():

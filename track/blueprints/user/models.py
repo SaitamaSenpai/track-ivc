@@ -67,10 +67,10 @@ class User(UserMixin, ResourceMixin, db.Model):
     def __init__(self, **kwargs):
         # Call Flask-SQLAlchemy's constructor.
         super(User, self).__init__(**kwargs)
-        self.allocated_to_date = 0.0
-        self.expenses_to_date = 0.0
-        self.income_to_date = 0.0
-        self.total_to_date = 0.0
+        self.allocated_to_date = 0.00
+        self.expenses_to_date = 0.00
+        self.income_to_date = 0.00
+        self.total_to_date = 0.00
 
         self.password = User.encrypt_password(kwargs.get('password', ''))
 

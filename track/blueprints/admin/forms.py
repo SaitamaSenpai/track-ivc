@@ -50,38 +50,6 @@ class UserForm(ModelForm):
             get_session=lambda: db.session
         )
     ])
-    acct_type = SelectField('Account Type', [DataRequired(), ensure_acct], 
-                                            choices=choices_from_dict(User.ACCT_TYPE, 
+    acct_type = SelectField('Account Type', [DataRequired(), ensure_acct],
+                                            choices=choices_from_dict(User.ACCT_TYPE,
                                                                         prepend_blank=True))
-'''
-class AddForm(ModelForm):
-    username_message = 'Letters, numbers and underscores only please.'
-
-    username = StringField(validators=[
-        Unique(
-            User.username,
-            get_session=lambda: db.session
-        ),
-        Optional(),
-        Length(1, 16),
-        Regexp('^\w+$', message=username_message)
-    ])
-
-    role = SelectField('Privileges', [DataRequired()],
-                       choices=choices_from_dict(User.ROLE,
-                                                 prepend_blank=False))
-    active = BooleanField('Yes, allow this user to sign in')
-
-    email = EmailField(validators=[
-        Optional(),
-        Email(),
-        Unique(
-            User.email,
-            get_session=lambda: db.session
-        )
-    ])
-    acct_type = SelectField('Account Type', [DataRequired()], 
-                                            choices=choices_from_dict(User.ACCT_TYPE, 
-                                                                        prepend_blank=True))
-    password = PasswordField('Password', [DataRequired(), Length(8, 128)])
-    '''

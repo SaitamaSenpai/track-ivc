@@ -21,7 +21,6 @@ class Budget(ResourceMixin, db.Model):
 	])
 
 	BUD_YR = OrderedDict([
-        ('2016-2017', '2016-2017'),
 		('2017-2018', '2017-2018'),
         ('2018-2019', '2018-2019'),
 		('2019-2020', '2019-2020'),
@@ -46,15 +45,15 @@ class Budget(ResourceMixin, db.Model):
 							nullable=False)
 	acct_num = db.Column(db.Enum(*ACCT_NUM, name='account_numbers', native_enum=False),
 							nullable=False)
-	budget_year = db.Column(db.String(128))
+	budget_year = db.Column(db.Enum(*BUD_YR, name='budget_year', native_enum=False),
+							nullable=False)
 	allocated_amount = db.Column(db.Float())
 	expenses_amount = db.Column(db.Float())
 	income_amount = db.Column(db.Float())
-	
+
 	description = db.Column(db.Text(), nullable=False)
-	
+
 
 	def __init__(self, **kwargs):
 		#initialize the whole database
 		super(Budget, self).__init__(**kwargs)
-	

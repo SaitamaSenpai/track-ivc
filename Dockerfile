@@ -1,5 +1,5 @@
 FROM python:3.5.2-slim
-MAINTAINER Track IVC <track.ivc@gmail.com>
+MAINTAINER Team OGG <track.ivc@gmail.com>
 
 RUN apt-get update && apt-get install -qq -y \
   build-essential libpq-dev --no-install-recommends
