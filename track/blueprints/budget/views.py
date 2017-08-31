@@ -39,19 +39,20 @@ def input():
 
         if input_type == 'allocated':
             a = amount,
-            e = 0.00,
-            i = 0.00
+            e = 0.0,
+            i = 0.0
             u.update_allocated_total(amount)
         if input_type == 'expenses':
             e = amount,
-            a = 0.00,
-            i = 0.00
+            a = 0.0,
+            i = 0.0
             u.update_expenses_total(amount)
         if input_type == 'income':
             i = amount,
-            a = 0.00,
-            e = 0.00
+            a = 0.0,
+            e = 0.0
             u.update_income_total(amount)
+
 
         params = {
             'user_id': username,
@@ -85,7 +86,7 @@ def view(page):
     user = User.query.filter(User.username == Dashboard.hold)
     paginated_budget = Budget.query \
         .filter(Budget.user_id == Dashboard.hold) \
-        .order_by(Budget.acct_num.asc(), Budget.updated_on.asc()) \
+        .order_by(Budget.acct_num.asc(), Budget.updated_on.asc(), Budget.budget_year.asc()) \
         .paginate(page, 50, True)
 
     return render_template('budget/view.html', budget=paginated_budget, user=user)

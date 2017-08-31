@@ -262,15 +262,33 @@ class User(UserMixin, ResourceMixin, db.Model):
 
     def update_allocated_total(self, field):
         self.allocated_to_date += float(field)
+        round(self.allocated_to_date, 2)
+        '{:.2f}'.format(self.allocated_to_date)
         self.total_to_date += float(field)
+        self.total_to_date = self.total_to_date * 100
+        self.total_to_date = round(self.total_to_date)
+        self.total_to_date = self.total_to_date / 100
+        '{:.2f}'.format(self.total_to_date)
         return self.save()
 
     def update_expenses_total(self, field):
         self.expenses_to_date += float(field)
+        round(self.expenses_to_date, 2)
+        '{:.2f}'.format(self.expenses_to_date)
         self.total_to_date -= float(field)
+        self.total_to_date = self.total_to_date * 100
+        self.total_to_date = round(self.total_to_date)
+        self.total_to_date = self.total_to_date / 100
+        '{:.2f}'.format(self.total_to_date)
         return self.save()
 
     def update_income_total(self, field):
         self.income_to_date += float(field)
+        round(self.income_to_date, 2)
+        '{:.2f}'.format(self.income_to_date)
         self.total_to_date += float(field)
+        self.total_to_date = self.total_to_date * 100
+        self.total_to_date = round(self.total_to_date)
+        self.total_to_date = self.total_to_date / 100
+        '{:.2f}'.format(self.total_to_date)
         return self.save()

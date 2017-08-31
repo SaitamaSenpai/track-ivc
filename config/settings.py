@@ -1,6 +1,6 @@
 from datetime import timedelta
 
-DEBUG = False
+DEBUG = True
 LOG_LEVEL = 'DEBUG'  # CRITICAL / ERROR / WARNING / INFO / DEBUG
 
 SERVER_NAME = 'localhost:8000'
