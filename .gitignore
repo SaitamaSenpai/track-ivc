@@ -28,7 +28,7 @@
 
 # OS generated files #
 ######################
-.DS_Store
+*.DS_Store
 .DS_Store?
 ._*
 .Spotlight-V100
@@ -39,7 +39,7 @@ Thumbs.db
 
 # Cache #
 #########
-.pyc
+*.pyc
 
 
 # Instance and config#
