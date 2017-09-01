@@ -42,7 +42,8 @@ Thumbs.db
 .pyc
 
 
-# Instance #
+# Instance and config#
 ############
 instance/**
 **/__pycache__
+config/**
