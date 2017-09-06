@@ -128,21 +128,49 @@
       <div class="panel-body">
         <dl>
           <dt>Allocated to date</dt>
-          <dd class="text-success">
-            ${{ user.allocated_to_date }}
-          </dd>
+          <dd class="text-success" id="allocated_to_date"></dd>
+          <script>
+          function allocated_d() {
+              var num = {{ user.allocated_to_date }};
+              var n = num.toFixed(2)
+              document.getElementById("allocated_to_date").innerHTML = '$' + n;
+          }
+          </script>
+          <script>allocated_d();</script>
+
           <dt>Expenses to date</dt>
-          <dd class="text-warning">
-            ${{ user.expenses_to_date }}
-          </dd>
+          <dd class="text-warning" id='expenses_to_date'></dd>
+          <script>
+          function expense_d() {
+              var num = {{ user.expenses_to_date }};
+              var n = num.toFixed(2)
+              document.getElementById("expenses_to_date").innerHTML = '$' + n;
+          }
+          </script>
+          <script>expense_d();</script>
+
           <dt>Income to date</dt>
-          <dd class="text-success">
-            ${{ user.income_to_date }}
-          </dd>
+          <dd class="text-success" id='income_to_date'></dd>
+          <script>
+          function income_d() {
+              var num = {{ user.income_to_date }};
+              var n = num.toFixed(2)
+              document.getElementById("income_to_date").innerHTML = '$' + n;
+          }
+          </script>
+          <script>income_d();</script>
+
           <dt>Total</dt>
-          <dd class="text-{{ 'success' if user.total_to_date > 0 else 'danger' }}">
-            ${{ user.total_to_date }}
-          </dd>
+          <dd class="text-{{ 'success' if user.total_to_date > 0 else 'danger' }}" id='total_to_date'></dd>
+          <script>
+          function total_d() {
+              var num = {{ user.total_to_date }};
+              var n = num.toFixed(2)
+              document.getElementById("total_to_date").innerHTML = '$' + n;
+          }
+          </script>
+          <script>total_d();</script>
+
         </dl>
         <div class="col-md-12">
           <a href="{{ url_for('budget.view') }}"

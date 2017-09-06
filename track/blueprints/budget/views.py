@@ -53,6 +53,7 @@ def input():
             e = 0.0
             u.update_income_total(amount)
 
+
         params = {
             'user_id': username,
             'budget_year': budget_year,
@@ -63,16 +64,16 @@ def input():
             'expenses_amount': e,
             'income_amount': i
         }
-    
+
         b = Budget(**params)
 
         if None in params:
             flash('Area missing.', 'error')
-        else:    
+        else:
             b.save()
             flash('Your budget has been saved.', 'success')
             return redirect(url_for('admin.users'))
-    
+
 
     return render_template('budget/input.html', form=form)
 
@@ -85,7 +86,7 @@ def view(page):
     user = User.query.filter(User.username == Dashboard.hold)
     paginated_budget = Budget.query \
         .filter(Budget.user_id == Dashboard.hold) \
-        .order_by(Budget.acct_num.asc(), Budget.updated_on.asc()) \
+        .order_by(Budget.acct_num.asc(), Budget.updated_on.asc(), Budget.budget_year.asc()) \
         .paginate(page, 50, True)
 
     return render_template('budget/view.html', budget=paginated_budget, user=user)
