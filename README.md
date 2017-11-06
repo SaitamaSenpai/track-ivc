@@ -3,7 +3,7 @@ IVC Budget tracking website
 
 Commands:
 
-  Initial Setup:
+ Initial Setup:
   `docker-compose up --build`
   
   If initial setup not needed: `docker-compose up`
@@ -19,12 +19,12 @@ Commands:
 
 Access to application:
 
-	Mac: Enter `local.docker:8000` in address bar
+Mac: Enter `local.docker:8000` in address bar
 	
-	Windows:
+Windows:
 	
-		1. Go to instance/settings.py
+1. Go to instance/settings.py
 		
-		2. Comment out `SERVER_NAME = 'local.docker:8000'` by putting a `#` in front of it
+2. Comment out `SERVER_NAME = 'local.docker:8000'` by putting a `#` in front of it
 		
-		3. Input `localhost:8000` in address bar
+3. Input `localhost:8000` in address bar
