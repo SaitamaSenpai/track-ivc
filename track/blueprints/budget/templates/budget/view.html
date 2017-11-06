@@ -38,7 +38,7 @@
       {% endfor %}
       </tbody>
     </table>
-    <div class="col-md-12 col-md-offset-8">
+    <div class="col-md-offset-7 pull-right">
     {% for u in user %}
       {% if u.role == 'admin' %}
           <h2>Current remain: $ <strong class="text-{{ 'success' if u.total_to_date > 0 else 'danger' }}">{{ u.total_to_date }}</strong></h2>
