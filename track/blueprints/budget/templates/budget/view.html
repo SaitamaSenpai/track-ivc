@@ -76,7 +76,7 @@
       {% endfor %}
       </tbody>
     </table>
-    <div class="col-md-12 col-md-offset-8">
+    <div class="col-md-offset-7 pull-right">
     {% for u in user %}
       {% if u.role == 'admin' %}
           <h2>Current remain: <strong class="text-{{ 'success' if u.total_to_date > 0 else 'danger' }}" id='total_to_date'></strong></h2>
@@ -88,7 +88,7 @@
           }
           </script>
           <script>total_d();</script>
-          
+
       {% else %}
         <p>Allocated to date: <strong class="text-success" id='allocated_to_date'></strong></p>
         <script>
@@ -99,7 +99,7 @@
         }
         </script>
         <script>allocated_d();</script>
-        
+
         <p>Expenses to date: <strong class="text-warning" id='expenses_to_date'></strong></p>
         <script>
         function expense_d() {
