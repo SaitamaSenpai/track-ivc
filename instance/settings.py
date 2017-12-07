@@ -1,4 +1,4 @@
-MAIL_USERNAME = 'track.ivc@gmail.com'
-MAIL_PASSWORD = 'devpassword'
+MAIL_USERNAME = '[insert email]]'
+MAIL_PASSWORD = '[insert email password]'
 
-SERVER_NAME = 'local.docker:8000' 
+SERVER_NAME = 'local.docker:8000'
